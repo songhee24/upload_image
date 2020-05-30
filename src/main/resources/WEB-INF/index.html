@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <title>wallpaper</title>
+</head>
+<body>
+<form id="image">
+        id<input type="text" id="id-value">
+        <button type="button" onclick="restGetById()">
+            Get By Id
+        </button>
+</form>
+
+<script>
+    var prefix = "http://localhost:8080/";
+    var restGetById = function () {
+        var id = $("input#id-value").val();
+        console.log(id);
+        $.ajax({
+            type: 'GET',
+            url: prefix + id,
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                console.log(result);
+            },
+            error:function(jqXHR, textStatus, errorThrow) {
+                console.log("ERROR: ");
+                console.log(jqXHR);
+                console.log(textStatus);
+                console.log(errorThrow);
+            }
+        });
+    };
+</script>
+</body>
+</html>
