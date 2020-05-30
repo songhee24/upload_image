@@ -5,7 +5,6 @@ import com.example.uploudfiles.repository.ImageRepository;
 import com.example.uploudfiles.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Optional;
 
@@ -21,7 +20,11 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
-    public String addImage(String name, byte[] image) {
-       return imageRepository.addImage(name, image);
+    public String addLink(String s) {
+        return imageRepository.addLink(s);
     }
+    //    @Override
+//    public String addImage(String name, byte[] image) {
+//       return imageRepository.addImage(name, image);
+//    }
 }

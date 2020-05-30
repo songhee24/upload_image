@@ -6,7 +6,7 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "example_image")
+@Table(name = "example_second_image")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -18,9 +18,7 @@ public class Image {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    String name;
+    @Column(name = "link")
+    String link;
 
-    @Column(name="image")
-    private byte[] image;
 }

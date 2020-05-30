@@ -12,11 +12,13 @@
             Get By Id
         </button>
 </form>
-
+     <div id="output"></div>
 <script>
-    var prefix = "http://localhost:8080/";
+
+    var prefix = "http://localhost/";
     var restGetById = function () {
         var id = $("input#id-value").val();
+        let output = '';
         console.log(id);
         $.ajax({
             type: 'GET',
@@ -24,7 +26,11 @@
             dataType: 'json',
             async: true,
             success: function (result) {
+                 output +=  '<img alt="'+ prefix + 'img/' + result.link +'">';
+
                 console.log(result);
+                console.log(output);
+                $("#output").html(output);
             },
             error:function(jqXHR, textStatus, errorThrow) {
                 console.log("ERROR: ");

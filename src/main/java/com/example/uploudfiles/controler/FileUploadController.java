@@ -25,7 +25,11 @@ public class FileUploadController {
     private String addImage(MultipartFile file) throws IOException {
         byte[] bytes = file.getBytes();
         String modifiedFileName = System.currentTimeMillis() + file.getOriginalFilename();
-        imageService.addImage(modifiedFileName,bytes);
+        Path path = Paths.get("C:\\Users\\user\\Desktop\\" + modifiedFileName);
+        Files.write(path,bytes);
+        System.err.println(path.getFileName());
+        imageService.addLink(modifiedFileName);
+
         return modifiedFileName;
     }
     @CrossOrigin

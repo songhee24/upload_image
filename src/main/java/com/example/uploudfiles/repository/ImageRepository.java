@@ -9,6 +9,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Repository
 public interface ImageRepository extends JpaRepository<Image,Long> {
-    @Query(value = "INSERT INTO example_image(name,image) VALUES (:name,:image)",nativeQuery = true)
-    String addImage(@Param("name")String name ,@Param("image") byte[] image);
+//    @Query(value = "INSERT INTO example_image(name,image) VALUES (:name,:image)",nativeQuery = true)
+//    String addImage(@Param("name")String name ,@Param("image") byte[] image);
+
+     @Query(value = "INSERT INTO example_second_image(link) VALUES (:link)",nativeQuery = true)
+      String addLink(@Param("link") String link);
+
 }
