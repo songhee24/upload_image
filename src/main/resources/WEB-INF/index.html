@@ -15,7 +15,7 @@
      <div id="output"></div>
 <script>
 
-    var prefix = "http://localhost/";
+    var prefix = "http://localhost:8080/";
     var restGetById = function () {
         var id = $("input#id-value").val();
         let output = '';
@@ -26,9 +26,10 @@
             dataType: 'json',
             async: true,
             success: function (result) {
-                 output +=  '<img alt="'+ prefix + 'img/' + result.link +'">';
+                 // output +=  '<img src="'+ prefix + '../img/' + result.link +'">';
+                 output +=  '<img src="' + '../img/' + result.link +'">';
 
-                console.log(result);
+                console.log("result" + result);
                 console.log(output);
                 $("#output").html(output);
             },

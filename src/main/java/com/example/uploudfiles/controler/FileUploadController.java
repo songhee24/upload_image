@@ -25,13 +25,15 @@ public class FileUploadController {
     private String addImage(MultipartFile file) throws IOException {
         byte[] bytes = file.getBytes();
         String modifiedFileName = System.currentTimeMillis() + file.getOriginalFilename();
-        Path path = Paths.get("C:\\Users\\user\\Desktop\\" + modifiedFileName);
+//        Path path = Paths.get("C:\\Users\\user\\Desktop\\" + modifiedFileName);
+        Path path = Paths.get("E:\\spring initializr\\uploud-files\\src\\main\\resources\\img\\" + modifiedFileName);
         Files.write(path,bytes);
         System.err.println(path.getFileName());
         imageService.addLink(modifiedFileName);
 
         return modifiedFileName;
     }
+
     @CrossOrigin
     @GetMapping("/{id}")
     public Image getById(@PathVariable("id") Long id){
